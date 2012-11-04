@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/degradado" >
+
+    <EditText
+        android:id="@+id/cajaPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margen"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/cajaUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cajaPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margen"
+        android:ems="10"
+        android:hint="@string/nombre_usuario" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/botonIngresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cajaPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margen"
+        android:onClick="loguear"
+        android:text="@string/ingresar" />
+
+    <TextView
+        android:id="@+id/textoTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cajaUsername"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margen"
+        android:text="@string/nombre_app"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

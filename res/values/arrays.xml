@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="estados">
+        <item>Estado 1 (Nuevo)</item>
+        <item>Estado 2 (40% vida)</item>
+        <item>Estado 3 (60% vida)</item>
+        <item>Estado 4 (Defectuoso)</item>
+        <item>Estado 5 (Baja)</item>
+    </string-array>
+    <string-array name="tipos">
+        <item>Electronico</item>
+        <item>Mueble</item>
+    </string-array>
+
+</resources>
