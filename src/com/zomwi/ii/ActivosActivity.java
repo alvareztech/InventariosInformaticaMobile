@@ -25,8 +25,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 import com.zomwi.ii.adapters.NormalListViewAdapter;
 
 public class ActivosActivity extends Activity implements OnItemClickListener {

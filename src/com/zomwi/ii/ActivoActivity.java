@@ -7,6 +7,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,17 +15,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import com.zomwi.ii.adapters.NormalListViewAdapter;
 
-public class ActivoActivity extends SherlockActivity implements OnItemClickListener {
+public class ActivoActivity extends Activity implements OnItemClickListener {
 
 	private ListView lista;
 	private NormalListViewAdapter adaptadorLista;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lista);
 
