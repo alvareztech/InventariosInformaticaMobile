@@ -1,37 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blanco1"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/layoutPrincipal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/celeste_claro"
-        android:gravity="center" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/sn"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
         <TextView
             android:id="@+id/sn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/negro1" />
 
-    <ListView
-        android:id="@+id/lista"
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutBotones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@drawable/divider"
-        android:dividerHeight="2dp" />
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/botonPrestar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_opcion"
+            android:drawableTop="@drawable/ic_action_pareja"
+            android:onClick="prestar"
+            android:text="@string/prestar"
+            android:textColor="@color/blanco1" />
+
+        <Button
+            android:id="@+id/botonCambiarEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_opcion"
+            android:drawableTop="@drawable/ic_action_cambiar"
+            android:onClick="cambiarEstado"
+            android:text="@string/cambiar_estado"
+            android:textColor="@color/blanco1" />
+
+        <Button
+            android:id="@+id/botonMover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_opcion"
+            android:drawableTop="@drawable/ic_action_mover"
+            android:onClick="mover"
+            android:text="@string/mover"
+            android:textColor="@color/blanco1" />
+    </LinearLayout>
 
 </LinearLayout>

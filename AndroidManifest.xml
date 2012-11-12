@@ -9,6 +9,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -16,7 +17,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,17 +28,22 @@
         </activity>
         <activity
             android:name="ActivosActivity"
-            android:label="@string/activos" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="AmbientesActivity"
-            android:label="Ambientes" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="NuevoActivoActivity"
             android:label="@string/nuevo_activo" >
         </activity>
-        <activity android:name="RegistroActivity" >
+        <activity
+            android:name="RegistroActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity android:name="CambiarEstadoActivity" >
         </activity>

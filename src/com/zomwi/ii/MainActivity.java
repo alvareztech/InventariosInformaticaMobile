@@ -1,58 +1,27 @@
 package com.zomwi.ii;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.zomwi.ii.adapters.NormalListViewAdapter;
+import com.zomwi.ii.util.Util;
 
-public class MainActivity extends SherlockActivity implements OnItemClickListener {
-
-	private ListView lista;
-	private NormalListViewAdapter adaptadorLista;
-
-	// Constantes
-	public static final int ITEM_ACTIVOS = 0;
-	public static final int ITEM_AMBIENTES = 1;
+public class MainActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar_ForceOverflow);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_lista);
-		// getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-		lista = (ListView) findViewById(R.id.lista);
-		adaptadorLista = new NormalListViewAdapter(this);
-		lista.setAdapter(adaptadorLista);
-
-		lista.setOnItemClickListener(this);
-
-		adaptadorLista.adicionarItem(R.drawable.ic_activos, "Activos", "Listado de todos los activos fijos de la carrera de Informática.");
-		adaptadorLista.adicionarItem(R.drawable.ic_registros, "Ambientes",
-				"Diferentes ambientes de la carrera de Informática, lugares donde estan ubicados los activos fijos.");
+		setContentView(R.layout.activity_main);
 	}
 
-	public void onItemClick(AdapterView<?> arg0, View arg1, int posicion, long arg3) {
-		switch (posicion) {
-		case ITEM_ACTIVOS:
-			Intent intentActivos = new Intent(this, ActivosActivity.class);
-			startActivity(intentActivos);
-			break;
-		case ITEM_AMBIENTES:
-			Intent intentAmbientes = new Intent(this, AmbientesActivity.class);
-			startActivity(intentAmbientes);
-			break;
+	@Override
+	protected void onStart() {
+		super.onStart();
+		if (!Util.isOnline(this)) {
+			Util.showDialogNoInternet(this);
 		}
-
 	}
 
 	@Override
@@ -69,33 +38,30 @@ public class MainActivity extends SherlockActivity implements OnItemClickListene
 				Toast.makeText(this, "Adicionado.", Toast.LENGTH_LONG).show();
 
 			} else if (resultCode == RESULT_CANCELED) {
-				Toast.makeText(this, R.string.captura_cancelada, Toast.LENGTH_LONG).show();
+				Toast.makeText(this, R.string.captura_cancelada,
+						Toast.LENGTH_LONG).show();
 			}
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	/*********************************** MENU */
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getSupportMenuInflater();
-		inflater.inflate(R.menu.activity_main, menu);
-		return true;
+	public void capturar(View view) {
+		Intent intent = new Intent("com.zomwi.ii.SCAN");
+		// intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+		startActivityForResult(intent, 0);
+	}
+	
+	public void verRegistros(View view) {
+		
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == android.R.id.home || item.getItemId() == 0) {
-			return false;
-		}
-		switch (item.getItemId()) {
-		case R.id.menu_registrar:
-			Intent intent = new Intent("com.zomwi.ii.SCAN");
-			// intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-			startActivityForResult(intent, 0);
-			break;
+	public void verActivos(View view) {
+		Intent intentActivos = new Intent(this, ActivosActivity.class);
+		startActivity(intentActivos);
+	}
 
-		}
-		return true;
+	public void verAmbientes(View view) {
+		Intent intentAmbientes = new Intent(this, AmbientesActivity.class);
+		startActivity(intentAmbientes);
 	}
 }

@@ -28,6 +28,8 @@
     <!-- MainActivity -->
     <string name="registrar">Registrar</string>
     <string name="captura_cancelada">Captura Cancelada.</string>
+    <string name="ambientes">Ambientes</string>
+    <string name="camara">Cámara</string>
 
     <!-- RegistroActivity -->
     <string name="mover">Mover</string>
@@ -35,5 +37,9 @@
     <string name="cambiar_estado">Cambiar Estado</string>
     <string name="sn">SN</string>
     <string name="nombre_solicitante">Ej. Juan Perez</string>
+
+    <!-- NoInternetDialog -->
+    <string name="no_internet">Sin Internet</string>
+    <string name="no_internet_message">La aplicación requiere una conexión a Internet.</string>
 
 </resources>
