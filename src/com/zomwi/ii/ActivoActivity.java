@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 import com.zomwi.ii.adapters.NormalListViewAdapter;
 
-public class ActivoActivity extends Activity implements OnItemClickListener {
+public class ActivoActivity extends Activity {
 
 	private ListView lista;
 	private NormalListViewAdapter adaptadorLista;
@@ -25,17 +25,18 @@ public class ActivoActivity extends Activity implements OnItemClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_lista);
+		// setContentView(R.layout.activity_lista);
 
 		lista = (ListView) findViewById(R.id.lista);
 		adaptadorLista = new NormalListViewAdapter(this);
 		lista.setAdapter(adaptadorLista);
-		lista.setOnItemClickListener(this);
+//		lista.setOnItemClickListener(this);
 
 		int id = getIntent().getIntExtra("id", 0);
 
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet("http://192.168.43.241:8080/II/activo/" + id);
+		HttpGet httpGet = new HttpGet("http://192.168.43.241:8080/II/activo/"
+				+ id);
 		httpGet.setHeader("content-type", "application/json");
 		try {
 			HttpResponse httpResponse = httpClient.execute(httpGet);
@@ -47,20 +48,20 @@ public class ActivoActivity extends Activity implements OnItemClickListener {
 			String estado = jsonObject.getString("estado");
 			String fechaAlta = jsonObject.getString("fecha_alta");
 			String tipo = jsonObject.getString("tipo");
-			
-			adaptadorLista.adicionarItem(R.drawable.ic_activos, "Nombre", nombre);
-			adaptadorLista.adicionarItem(R.drawable.ic_activos, "Descripción", descripcion);
-			adaptadorLista.adicionarItem(R.drawable.ic_mouse_black, "Estado", estado);
-			adaptadorLista.adicionarItem(R.drawable.ic_activos, "Fecha alta", fechaAlta);
-			adaptadorLista.adicionarItem(R.drawable.ic_laptop_black, "Tipo", tipo);
+
+			adaptadorLista.adicionarItem(R.drawable.ic_activos, "Nombre",
+					nombre);
+			adaptadorLista.adicionarItem(R.drawable.ic_activos, "Descripción",
+					descripcion);
+			adaptadorLista.adicionarItem(R.drawable.ic_mouse_black, "Estado",
+					estado);
+			adaptadorLista.adicionarItem(R.drawable.ic_activos, "Fecha alta",
+					fechaAlta);
+			adaptadorLista.adicionarItem(R.drawable.ic_laptop_black, "Tipo",
+					tipo);
 		} catch (Exception ex) {
 			Log.e("ii", "Error!", ex);
 		}
-
-	}
-
-	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 
 	}
 }

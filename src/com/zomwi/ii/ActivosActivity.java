@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
@@ -16,14 +15,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.zomwi.ii.adapters.NormalListViewAdapter;
 
@@ -55,7 +50,7 @@ public class ActivosActivity extends Activity implements OnItemClickListener {
 
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpGet httpGet = new HttpGet(
-				"http://192.168.43.241:8080/II/activo/listMobile");
+				"http://192.168.43.241:8080/II/activo/all");
 		httpGet.setHeader("content-type", "application/json");
 
 		try {
@@ -86,58 +81,4 @@ public class ActivosActivity extends Activity implements OnItemClickListener {
 		startActivity(intent);
 	}
 
-	// ***** CONTEXT MENU *****
-
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
-		super.onCreateContextMenu(menu, v, menuInfo);
-
-		getMenuInflater().inflate(R.menu.activity_activos, menu);
-
-	}
-
-	@Override
-	public boolean onContextItemSelected(android.view.MenuItem item) {
-		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
-				.getMenuInfo();
-		switch (item.getItemId()) {
-		case R.id.accion_editar:
-			return true;
-		case R.id.accion_eliminar:
-			// Toast.makeText(this, "> " + info.position,
-			// Toast.LENGTH_LONG).show();
-			int id = ids.get(info.position);
-			// eliminarActivo(id);
-
-			HttpClient httpClient = new DefaultHttpClient();
-			HttpDelete del = new HttpDelete(
-					"http://192.168.43.241:8080/II/activo/" + id);
-			del.setHeader("content-type", "application/json");
-
-			try {
-				HttpResponse resp = httpClient.execute(del);
-				String respStr = EntityUtils.toString(resp.getEntity());
-				if (respStr.equals("true")) {
-					Toast.makeText(this, "Se elimino el activo.",
-							Toast.LENGTH_SHORT).show();
-				}
-			} catch (Exception ex) {
-				Log.e("ServicioRest", "Error!", ex);
-			}
-			onStart();
-
-			return true;
-		case R.id.accion_ver_vodigo_qr:
-
-			Intent intent = new Intent("com.google.zxing.client.android.ENCODE");
-			intent.putExtra("ENCODE_TYPE", "TEXT_TYPE");
-			intent.putExtra("ENCODE_DATA", "Hola ZOMWI!!!");
-			startActivity(intent);
-
-			return true;
-		default:
-			return super.onContextItemSelected(item);
-		}
-	}
 }

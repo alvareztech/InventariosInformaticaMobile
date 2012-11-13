@@ -8,7 +8,7 @@ public class MoverActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_prestar);
+		setContentView(R.layout.activity_mover);
 
 	}
 

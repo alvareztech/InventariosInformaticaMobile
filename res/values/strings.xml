@@ -1,21 +1,10 @@
 <resources>
 
     <string name="nombre_app">Inventarios Informática</string>
-    <string name="title_activity_main">Inventarios Informática</string>
-    <string name="escanear">Escanear</string>
-    <string name="nuevo_activo">Nuevo Activo</string>
-    <string name="nuevo_activo_qr">Nuevo Activo desde código QR</string>
-    <string name="nuevo_registro">Nuevo Registro</string>
     <string name="estado">Estado</string>
     <string name="tipo">Tipo</string>
-    <string name="nombre">Nombre</string>
-    <string name="descripcion">Descripción</string>
     <string name="activos">Activos</string>
-    <string name="nuevo_activo">Nuevo activo</string>
     <string name="registros">Registros</string>
-    <string name="caracteristicas"></string>
-    <string name="caracteristicas_activo">Características del activo</string>
-    <string name="ej_monitor_samsung">Ej. Monitor Samsung</string>
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="ver_codigo_qr">Ver código QR</string>
@@ -27,7 +16,7 @@
 
     <!-- MainActivity -->
     <string name="registrar">Registrar</string>
-    <string name="captura_cancelada">Captura Cancelada.</string>
+    <string name="captura_cancelada">Captura cancelada.</string>
     <string name="ambientes">Ambientes</string>
     <string name="camara">Cámara</string>
 
@@ -41,5 +30,7 @@
     <!-- NoInternetDialog -->
     <string name="no_internet">Sin Internet</string>
     <string name="no_internet_message">La aplicación requiere una conexión a Internet.</string>
+    <string name="capturar_qr">Capturar código QR</string>
+    <string name="motivo">Motivo</string>
 
 </resources>

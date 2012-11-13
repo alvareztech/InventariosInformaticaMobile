@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margen"
-            android:text="@string/cambiar_estado"
+            android:text="@string/mover"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/celeste" />
 
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margen"
-            android:entries="@array/estados" />
+            android:entries="@array/ambientes" />
 
         <EditText
             android:id="@+id/editText1"

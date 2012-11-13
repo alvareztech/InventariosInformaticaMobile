@@ -2,15 +2,23 @@
 <resources>
 
     <string-array name="estados">
-        <item>Estado 1 (Nuevo)</item>
-        <item>Estado 2 (40% vida)</item>
-        <item>Estado 3 (60% vida)</item>
-        <item>Estado 4 (Defectuoso)</item>
-        <item>Estado 5 (Baja)</item>
+        <item>Estado 1</item>
+        <item>Estado 2</item>
+        <item>Estado 3</item>
+        <item>Estado 4</item>
+        <item>Estado 5</item>
     </string-array>
-    <string-array name="tipos">
-        <item>Electronico</item>
-        <item>Mueble</item>
+    <string-array name="ambientes">
+        <item>LASIN 1</item>
+        <item>LASIN 2</item>
+        <item>LASIN 3</item>
+        <item>LASIN 4</item>
+        <item>Biblioteca</item>
+        <item>Kardex</item>
+        <item>ST-A1</item>
+        <item>ST-A2</item>
+        <item>ST-A3</item>
+        <item>ST-A4</item>
     </string-array>
 
 </resources>
