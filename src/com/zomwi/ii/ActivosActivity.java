@@ -63,9 +63,9 @@ public class ActivosActivity extends Activity implements OnItemClickListener {
 				JSONObject obj = json.getJSONObject(i);
 				ids.add(obj.getInt("id"));
 				String nombre = obj.getString("nombre");
-				String descripcion = obj.getString("descripcion");
+				String descripcion = obj.getString("ambienteActual");
 				adaptadorLista.adicionarItem(R.drawable.ic_pantalla, nombre,
-						descripcion);
+						!descripcion.equals("null") ? descripcion : "Ninguno");
 			}
 
 		} catch (Exception ex) {

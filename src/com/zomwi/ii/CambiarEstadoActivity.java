@@ -30,7 +30,7 @@ public class CambiarEstadoActivity extends Activity {
 		try {
 			HttpClient httpClient = new DefaultHttpClient();
 			HttpPost post = new HttpPost(
-					"http://192.168.43.241:8080/II/cambioEstado/saveMobile");
+					"http://192.168.43.241:8080/II/cambioEstado/doPost");
 			post.setHeader("content-type", "application/json");
 
 			JSONObject dato = new JSONObject(
@@ -58,7 +58,7 @@ public class CambiarEstadoActivity extends Activity {
 	}
 
 	public void cancelar(View view) {
-
+		finish();
 	}
 
 }
